@@ -12,9 +12,9 @@ export default function App() {
     //   <Home/>
     //   <StatusBar style="auto" />
     // </View>
-    <NavigationContainer>
+    // <NavigationContainer>
 			<MainStack />
-		</NavigationContainer>
+		// </NavigationContainer>
   );
 }
 
