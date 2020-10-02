@@ -1,15 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Home from './src/screens/Home';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+
+import MainStack from './src/navigations/MainStack';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    // <View style={styles.container}>
 
-      <Home/>
-      <StatusBar style="auto" />
-    </View>
+    //   <Home/>
+    //   <StatusBar style="auto" />
+    // </View>
+    <NavigationContainer>
+			<MainStack />
+		</NavigationContainer>
   );
 }
 
