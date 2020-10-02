@@ -4,7 +4,7 @@ import {
 	Container,
 	
   Thumbnail,
-  Row, Col
+  Row, Col, Body
 } from 'native-base';
 import header_home from '../../constants/images/header_home.png';
 import avatar from '../../constants/images/avatar.png';
@@ -12,7 +12,7 @@ import ItemHome from '../../components/ItemHome';
 
 const Home = () => {
   return (
-    <Container>
+    <Container style={styles.body}>
       <View style={styles.header}>
       <Image source={header_home} style={styles.header_home} />
       </View>
@@ -20,7 +20,7 @@ const Home = () => {
         <Thumbnail large source={avatar} />
       </View>
 
-      <View style={styles.container}>
+      <View>
         <Text style={styles.text_header}>Hack não 1500 bản 2020</Text>
 
         <ScrollView style={styles.content}>
@@ -55,6 +55,9 @@ const Home = () => {
           </Row>
         </ScrollView>
       </View>
+
+      <View style={styles.container}>
+      </View>
       
     </Container>
   )
@@ -62,6 +65,9 @@ const Home = () => {
 const screen = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
+  body: {
+    backgroundColor: '#F3F3F3'
+  },
   header_home: {
     width: screen.width,
     height: screen.height * 0.2,
@@ -74,14 +80,17 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000000'
   },
   container: {
-    backgroundColor: '#F3F3F3'
+    margin: 20,
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    height: screen.height * 0.27,
   },
   text_header: {
     color: '#00CDDA',
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "700",
     textAlign: 'center',
-    marginTop: 80
+    marginTop: 60
   },
   avatar: {
     position: 'absolute',
@@ -90,13 +99,14 @@ const styles = StyleSheet.create({
     zIndex: 10
   },
   collums: {
-    marginLeft: 15
+    marginLeft: 20
   },
   text_title: {
-    fontSize: 20,
-    fontWeight: "600",
+    fontSize: 16,
+    fontWeight: "800",
     color: '#000',
     marginLeft: 15,
+    marginTop: 10,
     marginBottom: 10
   }
 })

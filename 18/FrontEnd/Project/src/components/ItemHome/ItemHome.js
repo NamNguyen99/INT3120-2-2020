@@ -6,8 +6,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const ItemHome = ({icon, label, onClick, ...props}) => {
   return (
     <Button style={styles.container} onPress={onClick} {...props} bordered info>
-      <Icon name={icon} size={30} color="blue"/>
-      <Text>{label}</Text>
+      <Icon name={icon} size={30} color="#00CDDA"/>
+      <Text style={styles.text}>{label}</Text>
       
     </Button>
   )
@@ -18,7 +18,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: 100,
     height: 80,
-    borderRadius: 10
+    borderRadius: 15,
+    backgroundColor: '#fff'
+  },
+  text: {
+    fontSize: 8,
+    fontWeight: "bold",
+    color: '#000',
+    textAlign: 'center'
   }
 })
 
