@@ -5,14 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Home from '../screens/Home';
-
-function Media() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Media!</Text>
-    </View>
-  );
-}
+import Media from '../screens/Media';
 
 function Test() {
   return (

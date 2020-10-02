@@ -13,6 +13,7 @@ import ItemHome from '../../components/ItemHome';
 const Home = () => {
   return (
     <Container style={styles.body}>
+      <StatusBar hidden={false} />
       <View style={styles.header}>
       <Image source={header_home} style={styles.header_home} />
       </View>
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: '#fff',
     borderRadius: 15,
-    height: screen.height * 0.27,
+    height: screen.height * 0.2,
   },
   text_header: {
     color: '#00CDDA',
