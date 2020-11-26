@@ -2,6 +2,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
+    "test": "jest",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -38,10 +39,63 @@
     "react-native-web": "^0.13.14"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0",
+    "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@testing-library/dom": "^7.27.1",
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react": "^11.2.1",
+    "@testing-library/react-native": "^7.1.0",
+    "babel-jest": "^26.6.3",
     "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.1.6"
+    "jest": "^26.6.3",
+    "react-app-rewired": "^2.1.6",
+    "react-test-renderer": "^17.0.1"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
+      "^[./a-zA-Z0-9$_-]+\\.png$": "<rootDir>/RelativeImageStub.js",
+      "module_name_(.*)": "<rootDir>/substituted_module_$1.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+      "assets/(.*)": [
+        "<rootDir>/images/$1",
+        "<rootDir>/photos/$1",
+        "<rootDir>/recipes/$1"
+      ]
+    },
+    "rootDir": "./src",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/*/index.js",
+      "src/serviceWorker.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 97.93,
+        "branches": 97.28,
+        "functions": 98.1,
+        "lines": 98.07
+      }
+    }
+  }
 }
