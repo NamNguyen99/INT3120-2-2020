@@ -6,52 +6,45 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Home from '../screens/Home';
 import Media from '../screens/Media';
 import Exam from '../screens/Exam';
+import OptionUser from '../screens/Option';
 import Practice from '../screens/Practice';
-
-function Option() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Menu</Text>
-    </View>
-  );
-}
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
 
-            if (route.name === 'Trang chủ') {
-              iconName = 'home';
-            } else if (route.name === 'Audio') {
-              iconName = 'headphones';
-            } else if (route.name === 'Kiểm tra') {
-              iconName = 'file-alt';
-            } else if (route.name === 'Luyện Tập') {
-              iconName = 'book-open';
-            } else if (route.name === 'Danh mục') {
-              iconName = 'list';
-            }
+          if (route.name === 'Trang chủ') {
+            iconName = 'home';
+          } else if (route.name === 'Audio') {
+            iconName = 'headphones';
+          } else if (route.name === 'Kiểm tra') {
+            iconName = 'file-alt';
+          } else if (route.name === 'Luyện Tập') {
+            iconName = 'book-open';
+          } else if (route.name === 'Danh mục') {
+            iconName = 'list';
+          }
 
-            // You can return any component that you like here!
-            return <Icon name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: '#00CDDA',
-          inactiveTintColor: 'gray',
-        }}
-        initialRouteName={Home}
-      >
-        <Tab.Screen name="Trang chủ" component={Home} />
-        <Tab.Screen name="Audio" component={Media} />
-        <Tab.Screen name="Kiểm tra" component={Exam} />
-        <Tab.Screen name="Luyện Tập" component={Practice} />
-        <Tab.Screen name="Danh mục" component={Option} />
-      </Tab.Navigator>
+          // You can return any component that you like here!
+          return <Icon name={iconName} size={size} color={color} />;
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: '#00CDDA',
+        inactiveTintColor: 'gray',
+      }}
+      initialRouteName={Home}
+    >
+      <Tab.Screen name="Trang chủ" component={Home} />
+      <Tab.Screen name="Audio" component={Media} />
+      <Tab.Screen name="Kiểm tra" component={Exam} />
+      <Tab.Screen name="Luyện Tập" component={Practice} />
+      <Tab.Screen name="Danh mục" component={OptionUser} />
+    </Tab.Navigator>
   );
 }
